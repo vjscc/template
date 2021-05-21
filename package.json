@@ -1,5 +1,5 @@
 {
-  "name": "your-project-name",
+  "name": "your-libs-name",
   "version": "0.1.0",
   "description": "your description",
   "keywords": [
@@ -27,7 +27,7 @@
   "module": "dist/es/your-libs-name.js",
   "scripts": {
     "start": "parcel ./src/test/index.html --out-dir .cache/tmp",
-    "build:css": "parcel build ./src/style.less --out-dir dist --experimental-scope-hoisting --out-file component-maker.min.css",
+    "build:css": "parcel build ./src/style.less --out-dir dist --experimental-scope-hoisting --out-file your-libs-name.min.css",
     "build:js": "rollup -c",
     "build": "npm run build:js && npm run build:css"
   },
