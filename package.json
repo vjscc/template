@@ -9,13 +9,21 @@
     "LICENSE",
     "dist"
   ],
-  "main": "dist/lib/your-libs-name.min.js",
+  "global": "YourLib",
+  "types": "dist/your-libs-name.js",
+  "main": "dist/your-libs-name.js",
   "browser": "dist/browser/your-libs-name.min.js",
   "module": "dist/es/your-libs-name.js",
   "scripts": {
-
+    "build": "rollup -c"
   },
   "devDependencies": {
-    
+    "rollup": "^2.57.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-ts": "^1.4.7",
+    "typescript": "^4.4.3"
   }
 }
