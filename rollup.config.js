@@ -15,20 +15,20 @@ const config = {
       name: pkg.global,
       file: pkg.main,
       format: 'umd',
-      exports: 'default'
+      exports: 'auto'
     },
     {
       name: pkg.global,
       file: pkg.browser,
       format: 'iife',
-      exports: 'default',
+      exports: 'auto',
       plugins: [terser()],
       sourcemap: true
     },
     {
       file: pkg.module,
       format: 'esm',
-      exports: 'default'
+      exports: 'auto'
     }
   ],
 
