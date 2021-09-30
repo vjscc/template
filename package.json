@@ -10,7 +10,7 @@
     "dist"
   ],
   "global": "YourLib",
-  "types": "dist/your-libs-name.js",
+  "types": "dist/your-libs-name.d.ts",
   "main": "dist/your-libs-name.js",
   "browser": "dist/browser/your-libs-name.min.js",
   "module": "dist/es/your-libs-name.js",
