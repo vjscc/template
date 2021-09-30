@@ -16,9 +16,9 @@
   "module": "dist/es/your-libs-name.js",
   "scripts": {
     "start": "parcel ./src/test/index.html --cache-dir node_modules/.parcel --out-dir node_modules/.parcel",
-    "build:css": "parcel build ./src/index.less --out-dir dist --experimental-scope-hoisting --out-file your-libs-name.min.css --cache-dir node_modules/.parcel",
     "build:js": "rollup -c && node scripts/removeRedundancyDeclarations.js",
-    "build": "npm run build:css && npm run build:js",
+    "build:css": "parcel build ./src/index.less --out-dir dist --experimental-scope-hoisting --out-file your-libs-name.min.css --cache-dir node_modules/.parcel",
+    "build": "npm run build:js && npm run build:css",
     "pretest": "npm run build",
     "test": "parcel ./test/index.html --cache-dir node_modules/.parcel --out-dir node_modules/.parcel",
     "lint": "eslint src"
