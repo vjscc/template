@@ -15,7 +15,10 @@
   "browser": "dist/browser/your-libs-name.min.js",
   "module": "dist/es/your-libs-name.js",
   "scripts": {
-    "build": "rollup -c && node scripts/removeRedundancyDeclarations.js",
+    "start": "parcel ./src/test/index.html --cache-dir node_modules/.parcel --out-dir node_modules/.parcel",
+    "build:css": "parcel build ./src/index.less --out-dir dist --experimental-scope-hoisting --out-file your-libs-name.min.css --cache-dir node_modules/.parcel",
+    "build:js": "rollup -c && node scripts/removeRedundancyDeclarations.js",
+    "build": "npm run build:css && npm run build:js",
     "lint": "eslint src"
   },
   "devDependencies": {
@@ -24,6 +27,8 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "less": "^4.1.1",
+    "parcel-bundler": "^1.12.5",
     "prettier": "^2.4.1",
     "rollup": "^2.57.0",
     "rollup-plugin-clear": "^2.0.7",
