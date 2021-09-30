@@ -16,11 +16,11 @@ class Modal implements IModal {
     this.index = sum(...indexs)
   }
 
-  static create(container: HTMLElement, body: string, indexs: number[]) {
+  static create(container: HTMLElement, body: string, indexs: number[]): Modal {
     return new Modal(container, body, indexs)
   }
 
-  setBody = (body: string) => {
+  setBody = (body: string): Modal => {
     this.body = body
     return this
   }
