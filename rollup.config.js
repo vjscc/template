@@ -4,10 +4,14 @@ import pkg from './package.json'
 import clear from 'rollup-plugin-clear'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
+import less from 'rollup-plugin-less'
 import ts from 'rollup-plugin-ts'
 import { terser } from 'rollup-plugin-terser'
+import LessPluginCleanCSS from 'less-plugin-clean-css'
 
-/** @type import('rollup').RollupOptions */
+const isProduction = process.env.NODE_ENV === 'production'
+
+/** @type {import('rollup').RollupOptions} */
 const config = {
   input: path.join(__dirname, 'src/index.ts'),
   output: [
@@ -20,7 +24,7 @@ const config = {
     {
       name: pkg.global,
       file: pkg.browser,
-      format: 'iife',
+      format: 'umd',
       exports: 'auto',
       plugins: [terser()],
       sourcemap: true
@@ -31,15 +35,27 @@ const config = {
       exports: 'auto'
     }
   ],
-
   plugins: [
     clear({
       targets: ['dist']
     }),
     resolve(),
     commonjs(),
+    less({
+      insert: !isProduction,
+      output: pkg.style,
+      option: {
+        plugins: isProduction
+          ? [
+              new LessPluginCleanCSS({
+                advanced: true
+              })
+            ]
+          : undefined
+      }
+    }),
     ts({
-      transpiler: 'babel'
+      transpiler: 'swc'
     })
   ]
 }
