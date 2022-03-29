@@ -1,14 +1,4 @@
-# dependencies
-node_modules
-
-# dist
+coverage
 dist
-
-# project files
-.gitignore
-CHANGELOG
-
-# lock files
-package-lock.json
-yarn.lock
-yarn-*
+node_modules
+pnpm-lock.yaml
