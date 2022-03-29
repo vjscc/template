@@ -13,23 +13,23 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 16    
-      
+          node-version: 16
+
       - name: Cache node modules
         uses: actions/cache@v2.1.7
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: ${{ runner.OS }}-build-${{ env.cache-name }}-${{ runner.OS }}-build-${{ runner.OS }}-
 
-      - name: Install yarn
-        run: npm install yarn -g
-        
-      - name: Install packages  
-        run: yarn install --frozen-lockfile
+      - name: Install pnpm
+        run: npm install pnpm -g
+
+      - name: Install packages
+        run: pnpm install --frozen-lockfile
 
       - name: Build document
-        run: yarn doc
+        run: npm run doc
 
       # You may pin to the exact commit or the version.
       # uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501
